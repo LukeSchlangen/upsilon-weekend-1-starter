@@ -20,10 +20,13 @@ $(function () {
 });
 
 function appendDom(emp) {
-  var $emp = $('<div class="employee"></div>'); // create a div jQuery object
+  var $emp = $('<tr></tr>'); // create a tr jQuery object
 
-  $emp.append('<p>' + emp.employeeFirstName + ' ' + emp.employeeLastName + '</p>'); // add our employee data
-  $emp.append('<p>' + emp.employeeIdNumber + '</p>');
+  $emp.append('<td>' + emp.employeeFirstName + '</td>'); // add our employee data
+  $emp.append('<td>' + emp.employeeLastName + '</td>');
+  $emp.append('<td>' + emp.employeeIdNumber + '</td>');
+  $emp.append('<td>' + emp.employeeTitle + '</td>');
+  $emp.append('<td>' + emp.employeeSalary + '</td>');
 
   $('#employees').append($emp); // append our div to the DOM
 }
