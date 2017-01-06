@@ -8,7 +8,7 @@ $(function () {
     console.log('form submitted');
 
     event.preventDefault();
-
+    
     var formData = {};
     var formAsArray = $(this).serializeArray();
 
@@ -22,6 +22,12 @@ $(function () {
 
     clearForm();
   });
+
+
+  $('tbody').on('click', '.deleteButton', function(){
+    $(this).parent().parent().remove();
+  });
+
 });
 
 function appendDom(emp) {
@@ -32,6 +38,7 @@ function appendDom(emp) {
   $emp.append('<td>' + emp.employeeIdNumber + '</td>');
   $emp.append('<td>' + emp.employeeTitle + '</td>');
   $emp.append('<td>' + emp.employeeSalary + '</td>');
+  $emp.append('<td><button class="deleteButton">Delete</button></td>')
 
   $('#employees').append($emp); // append our div to the DOM
 }
