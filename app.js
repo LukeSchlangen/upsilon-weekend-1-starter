@@ -1,3 +1,6 @@
+
+var totalMonthlySalary = 0;
+
 $(function () {
   console.log('document is ready');
 
@@ -12,6 +15,8 @@ $(function () {
     formAsArray.forEach(function (input) {
       formData[input.name] = input.value;
     });
+
+    updateTotalSalary(formData.employeeSalary);
 
     appendDom(formData);
 
@@ -33,4 +38,10 @@ function appendDom(emp) {
 
 function clearForm() {
   $('form').find('input[type=text]').val('');
+}
+
+function updateTotalSalary(newEmployeeSalary){
+  console.log(newEmployeeSalary);
+  totalMonthlySalary += Number(newEmployeeSalary)/12;
+  $('#totalSalary').text(totalMonthlySalary);
 }
