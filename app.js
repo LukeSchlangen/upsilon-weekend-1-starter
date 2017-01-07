@@ -8,7 +8,7 @@ $(function () {
     console.log('form submitted');
 
     event.preventDefault();
-    
+
     var formData = {};
     var formAsArray = $(this).serializeArray();
 
@@ -25,6 +25,7 @@ $(function () {
 
 
   $('tbody').on('click', '.deleteButton', function(){
+    updateTotalSalary("-" + Number($(this).parent().prev().text()));
     $(this).parent().parent().remove();
   });
 
